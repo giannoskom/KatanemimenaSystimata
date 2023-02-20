@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rent A Car</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+</head>
+<body class="body4">
+<div class="renters">
+  <table  class="tableRenters">
+    <tr>
+      <br><br><br><br>
+      <th> ID </th>
+      <th> First name </th>
+      <th> Last name </th>
+      <th> Email </th>
+      <th> Starting Date </th>
+<!--      <th> End Date</th>-->
+      <th authorize="hasRole('ADMIN')" >Actions</th>
+    </tr>
+    <tr th:each="rent : ${Rents}">
+      <td th:text="${rent.id}"></td>
+      <td th:text="${rent.renterName}"></td>
+      <td th:text="${rent.renterLastName}"></td>
+      <td th:text="${rent.email}"></td>
+      <td th:text="${rent.gettingDate}"></td>
+<!--      <td th:text="${rent.backDate}">"10-10-2000"</td>-->
+      <td authorize="hasRole('ADMIN')">
+        <button class="button3" th:onclick="'handleClick(' + ${rent.id} + ')'">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <button class="button3" type="button" onclick="location.href='/'">Home</button>
+  </div>
+<script type="text/javascript">
+  function handleClick(data) {
+    fetch('/rents/'+data, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to delete user');
+      }// handle success response
+    }).catch(error => {
+      console.error('Error deleting user:', error);
+    });
+    console.log(data);
+  }
+</script>
+
+</body>
+
+</html>

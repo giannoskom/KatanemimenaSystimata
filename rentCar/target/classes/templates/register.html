@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>User register</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+</head>
+<body class="body5">
+<form class="form" th:action="@{/register}" th:object="${user}" method="post">
+  <div class="Reg">
+    <label for="username" class="label">Username</label>
+    <input type="text" th:field="*{username}" id="username" class="form-control">
+    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+  </div>
+  <div class="Reg">
+    <label for="password" class="label">Password</label>
+    <input type="password" th:field="*{password}" id="password" class="form-control">
+    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+  </div>
+  <button type="submit" name="register" class="btn btn-primary">Submit</button>
+  <br><br><br>
+</form>
+  <button class="button2" type="button" onclick="location.href='/'">Home</button>
+</body>
+</html>

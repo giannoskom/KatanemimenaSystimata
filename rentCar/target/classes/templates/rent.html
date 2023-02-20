@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rent A Car</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+</head>
+<body class="body3">
+<div class="wrapper3">
+  <form th:action="@{/saveRent}" th:object="${rent}" method="post">
+    <br><br>
+    <h2> Name</h2>
+    <input type="text" name="renterName" th:field="*{renterName}">
+    <span th:if="${#fields.hasErrors('renterName')}" th:errors="*{renterName}"></span>
+
+    <h2>Last name </h2>
+    <input type="text" name="renterLastName" field="*{renterLastName}">
+    <span th:if="${#fields.hasErrors('renterLastName')}" th:errors="*{renterLastName}"></span>
+
+    <h2>Email </h2>
+    <input type="text" name="email" th:field="*{email}">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+    <h2>Date</h2>
+    <input type="date" name="gettingDate" th:field="*{gettingDate}">
+    <input type="date" name="backDate" th:field="*{backDate}">
+    <span if="${#fields.hasErrors('gettingTime')}" th:errors="*{gettingDate}"></span>
+    <span if="${#fields.hasErrors('backTime')}" th:errors="*{backDate}"></span>
+    <br><br><br><br>
+    <button name="saveRent" class="btnSubmit" type="submit">Submit</button>
+    <br><br><br><br>
+  </form>
+   <button class="button2" type="button" onclick="location.href='/'">Home</button>
+</div>
+</body>
+
+</html>

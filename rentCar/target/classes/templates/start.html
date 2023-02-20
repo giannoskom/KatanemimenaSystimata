@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Car</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="wrapper">
+  <nav class="navbar">
+    <ul>
+        <a href="/" style="border: 1px solid black; text-align: center; width: auto"  > Home </a>
+        <a href="/cars" style="border: 1px solid black; text-align: center; width: auto"> Cars </a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/renters" th:href="@{/renters}"style="border: 1px solid black; text-align: center; width: auto">Renters</a>
+        <a href="/login" style="border: 1px solid black; text-align: center; width: auto" > Login </a>
+        <a sec:authorize="isAuthenticated()" href="/logout" th:href="@{/logout}" style="border: 1px solid black; text-align: center; width: auto">Logout</a>
+        <a href="/register" style="border: 1px solid black; text-align: center; width: auto"> Register </a>
+    </ul>
+  </nav>
+</div>
+</header>
+</body>
+</html>

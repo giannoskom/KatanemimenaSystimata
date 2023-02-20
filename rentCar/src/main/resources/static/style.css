@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+*{
+	padding: 0;
+	margin: 0;
+}
+.wrapper{
+    background: url('nice.jpg') no-repeat;
+    background-size: cover;
+    height: 120vh;
+
+}
+.navbar{
+    height: 110px;
+    width: 100%;
+    background: white;
+}
+.logo{
+    width: 150px;
+    height: auto;
+    padding: 20px 100px;
+}
+
+.navbar ul{
+    float:right;
+    margin-right: 30px;
+}
+
+.navbar ul li{
+    list-style: none;
+    margin: 18px 15px;
+    display: inline-block;
+    line-height: 80px;
+}
+
+.navbar ul a{
+    text-decoration: none;
+    color:black;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+	padding: 10px 50px;
+	text-decoration: none;
+	transition: .4s;
+	    list-style: none;
+        margin: 18px 15px;
+        display: inline-block;
+}
+
+
+
+.body2{
+    background: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+img{
+    width: auto;
+    height: auto;
+    margin: 90px 100px;
+}
+
+.car{
+margin:10px;
+width: 800px;
+height: 400px;
+box-shadow: -1px 0 10px #000000;
+align-items: center;
+justify-content: center;
+}
+
+.car h2{
+    text-decoration: none;
+    color:black;
+    font-size: 25px;
+    font-family: 'Orbitron', sans-serif;
+	padding: 10px 50px;
+	text-decoration: none;
+	transition: .4s;
+}
+
+.body3{
+    background: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.wrapper3 form h2{
+    text-decoration: none;
+    color:black;
+    font-size: 25px;
+    font-family: 'Orbitron', sans-serif;
+	padding: 25px 50px;
+	text-decoration: none;
+	transition: .4s;
+}
+
+input[type=password]{
+    width: 257px;
+    height: 30px;
+    border: 2px solid black;
+    margin: 8px 0;
+    outline: none;
+}
+
+input[type=text]{
+    width: 257px;
+    height: 30px;
+    border: 2px solid black;
+    margin: 8px 0;
+    outline: none;
+}
+
+input[type=date]{
+    width: 400x;
+    height: 30px;
+    border: 2px solid black;
+    margin: 8px 0;
+    outline: none;
+}
+
+.wrapper3 form button{
+    width: 257px;
+    border: 2px solid black;
+    background: none;
+    padding: 40px, 40px;
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.button2{
+    display: block;
+    margin: auto;
+    height: 40px;
+    width: 200px;
+    border: 2px solid rgb(14, 13, 13);
+    background: none;
+    padding: 50px, 50px;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.button3{
+    display: block;
+    margin: auto;
+    align-self:flex-end;
+    height: 40px;
+    width: 200px;
+    border: 2px solid rgb(14, 13, 13);
+    background: none;
+    padding: 50px, 50px;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.body4{
+    background: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.tableRenters{
+    border-collapse: collapse;
+    margin: 50px 0px;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    min-width: 400px;
+
+
+}
+.tableRenters thead tr{
+    float:center;
+
+}
+
+.tableRenters thead tr th{
+    text-align: center;
+    padding: 50px;
+}
+
+.tableRenters tbody tr td{
+    text-align: center;
+    padding: 50px;
+}
+
+.tableRenters tbody button{
+    height: 40px;
+    width: 100px;
+    border: 2px solid rgb(14, 13, 13);
+    background: none;
+    padding: 50px, 50px;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.body5{
+    background: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 130px ;
+}
+
+
+.form button{
+    display: block;
+    margin: auto;
+    align-self:flex-end;
+    height: 40px;
+    width: 200px;
+    border: 2px solid rgb(14, 13, 13);
+    background: none;
+    padding: 50px, 50px;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.Reg label{
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.Reg{
+    margin: auto;
+    padding: 20px;
+    align-items: center;
+
+}
