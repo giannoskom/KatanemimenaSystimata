@@ -1,10 +1,7 @@
-Το backend αποτελειται απο μια βαση postgres μεσω docker.
-Δυστηχως υπαρχει ενα ερρορ που δεν καταφεραμε να διορθωσουμε ακομη αλλα θα εχει φτιαχτει μεχτι το επομενο
-παραδοτεο.
+Για να μπορεσει κανεις να τρεξει την εφαρμοφη στον υπολογιστη του θα πρεπει πρωτα να εχει εγκαταστησει το docker ενα image του PostgreSQL version 14.
+Επειτα μπορει να τρεξει την παρακατω εντολη στο τερματικο για να δημιουργηθει η βαση.
 
-org.postgresql.util.PSQLException: FATAL: role "postgres " does not exist
+docker run --name spb_db --rm -e POSTGRES_PASSWORD=pass123 --net=host -v pgdata14:/var/lib/postgresql/data -d postgres:14
 
--δημιουργια βασης:
-	docker run --name car_db --rm -e  POSTGRES_PASSWORD=pass -e POSTGRES_DB=unicar --net=host -v pgdata14:/var/lib/postgresql/data  -d postgres:14
-
-	psql -h localhost -U postgres -d unicar -p 5432 -W
+Μετα η εφαρμογη μπορει να τρεξει, ενω θα δημιουργηθούν από μονα τους τα tables.
+Επίσης στο repository θα βρειτε και ενα αρχειο sql για τη δημιουργια των πινακων και τη δημιουργια μερικων χρηστων.
