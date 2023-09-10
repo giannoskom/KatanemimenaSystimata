@@ -7,7 +7,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+   <style>
+     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+     *{
+       padding: 0;
+       margin: 0;
+     }
+     .body4{
+       background: white;
+       align-items: center;
+       justify-content: center;
+       display: flex;
+     }
 
+     .tableRenters{
+       border-collapse: collapse;
+       margin: 50px 0px;
+       font-size: 20px;
+       font-family: 'Orbitron', sans-serif;
+       min-width: 400px;
+
+
+     }
+     .tableRenters thead tr{
+       float:center;
+     }
+
+     .tableRenters thead tr th{
+       text-align: center;
+       padding: 50px;
+     }
+
+     .tableRenters tbody tr td{
+       text-align: center;
+       padding: 50px;
+     }
+
+     .tableRenters tbody button{
+       height: 40px;
+       width: 100px;
+       border: 2px solid rgb(14, 13, 13);
+       background: none;
+       padding: 50px, 50px;
+       font-size: 20px;
+       font-family: 'Orbitron', sans-serif;
+     }
+     .button2{
+       display: block;
+       margin: auto;
+       height: 40px;
+       width: 200px;
+       border: 2px solid rgb(14, 13, 13);
+       background: none;
+       padding: 50px, 50px;
+       font-size: 20px;
+       font-family: 'Orbitron', sans-serif;
+     }
+   </style>
 </head>
 <body class="body4">
 <div class="renters">
@@ -20,6 +76,7 @@
       <th> Email </th>
       <th> Starting Date </th>
 <!--      <th> End Date</th>-->
+      <th> Cars Id </th>
       <th authorize="hasRole('ADMIN')" >Actions</th>
     </tr>
     <tr th:each="rent : ${Rents}">
@@ -28,13 +85,14 @@
       <td th:text="${rent.renterLastName}"></td>
       <td th:text="${rent.email}"></td>
       <td th:text="${rent.gettingDate}"></td>
+      <td th:text="${rent.carID}"></td>
 <!--      <td th:text="${rent.backDate}">"10-10-2000"</td>-->
       <td authorize="hasRole('ADMIN')">
-        <button class="button3" th:onclick="'handleClick(' + ${rent.id} + ')'">Delete</button>
+        <button class="button3" th:attr="data-id=${rent.id}" onclick="handleClick(this.getAttribute('data-id'))">Delete</button>
       </td>
     </tr>
   </table>
-  <button class="button3" type="button" onclick="location.href='/'">Home</button>
+  <button class="button2" type="button" onclick="location.href='/'">Home</button>
   </div>
 <script type="text/javascript">
   function handleClick(data) {

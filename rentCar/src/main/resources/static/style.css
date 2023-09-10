@@ -63,7 +63,7 @@ img{
 .car{
 margin:10px;
 width: 800px;
-height: 400px;
+height: auto;
 box-shadow: -1px 0 10px #000000;
 align-items: center;
 justify-content: center;
@@ -72,7 +72,7 @@ justify-content: center;
 .car h2{
     text-decoration: none;
     color:black;
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Orbitron', sans-serif;
 	padding: 10px 50px;
 	text-decoration: none;
@@ -80,20 +80,20 @@ justify-content: center;
 }
 
 .body3{
-    background: white;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
+     background: white;
+     align-items: center;
+     justify-content: center;
+     display: flex;
+ }
 
 .wrapper3 form h2{
     text-decoration: none;
     color:black;
     font-size: 25px;
     font-family: 'Orbitron', sans-serif;
-	padding: 25px 50px;
-	text-decoration: none;
-	transition: .4s;
+    padding: 25px 50px;
+    text-decoration: none;
+    transition: .4s;
 }
 
 input[type=password]{
@@ -120,7 +120,7 @@ input[type=date]{
     outline: none;
 }
 
-.wrapper3 form button{
+.wrapper3 form button {
     width: 257px;
     border: 2px solid black;
     background: none;
@@ -172,7 +172,6 @@ input[type=date]{
 }
 .tableRenters thead tr{
     float:center;
-
 }
 
 .tableRenters thead tr th{

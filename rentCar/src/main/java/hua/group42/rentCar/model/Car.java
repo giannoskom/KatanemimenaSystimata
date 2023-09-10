@@ -18,16 +18,19 @@ public class Car {
     @Column(name = "model")
     private String model;
     @Column(name = "modelYear")
-    private int modelYear;
+    private String modelYear;
 
-    public Car() {
+    public Car(String brand, String carModel, String carYear) {
     }
 
-    public Car(@JsonProperty("id") int id, @JsonProperty("brand") String brand, @JsonProperty("model") String model, @JsonProperty("modelYear") int modelYear) {
+    public Car(@JsonProperty("id") int id, @JsonProperty("brand") String brand, @JsonProperty("model") String model, @JsonProperty("modelYear") String modelYear) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.modelYear = modelYear;
+    }
+
+    public Car() {
     }
 
     public int getId() {
@@ -54,11 +57,11 @@ public class Car {
         this.model = model;
     }
 
-    public int getModelYear() {
+    public String getModelYear() {
         return modelYear;
     }
 
-    public void setModelYear(int modelYear) {
+    public void setModelYear(String modelYear) {
         this.modelYear = modelYear;
     }
 

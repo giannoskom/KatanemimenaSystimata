@@ -7,15 +7,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrapper{
+            background: url('nice.jpg') no-repeat;
+            background-size: cover;
+            height: 120vh;
+
+        }
+        .navbar{
+            height: 110px;
+            width: 100%;
+            background: white;
+        }
+        .logo{
+            width: 150px;
+            height: auto;
+            padding: 20px 100px;
+        }
+
+        .navbar ul{
+            float:right;
+            margin-right: 30px;
+        }
+
+        .navbar ul li{
+            list-style: none;
+            margin: 18px 15px;
+            display: inline-block;
+            line-height: 80px;
+        }
+
+        .navbar ul a{
+            text-decoration: none;
+            color:black;
+            font-size: 20px;
+            font-family: 'Orbitron', sans-serif;
+            padding: 10px 50px;
+            text-decoration: none;
+            transition: .4s;
+            list-style: none;
+            margin: 18px 15px;
+            display: inline-block;
+        }
+
+    </style>
 </head>
-<body>
+<body class="body">
 <header>
 <div class="wrapper">
   <nav class="navbar">
     <ul>
         <a href="/" style="border: 1px solid black; text-align: center; width: auto"  > Home </a>
         <a href="/cars" style="border: 1px solid black; text-align: center; width: auto"> Cars </a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/renters" th:href="@{/renters}"style="border: 1px solid black; text-align: center; width: auto">Renters</a>
+        <a href="/produce" style="border: 1px solid black; text-align: center; width: auto"  > Insert </a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/renters" th:href="@{/renters}"style="border: 1px solid black; text-align: center; width: auto" class="<?php echo $bIsAdmin ? '' : 'hidden' ?>"> Renters</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/producers" th:href="@{/producers}"style="border: 1px solid black; text-align: center; width: auto" class="<?php echo $bIsAdmin ? '' : 'hidden' ?>"> Producers</a>
         <a href="/login" style="border: 1px solid black; text-align: center; width: auto" > Login </a>
         <a sec:authorize="isAuthenticated()" href="/logout" th:href="@{/logout}" style="border: 1px solid black; text-align: center; width: auto">Logout</a>
         <a href="/register" style="border: 1px solid black; text-align: center; width: auto"> Register </a>

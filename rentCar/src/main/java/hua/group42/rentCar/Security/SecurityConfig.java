@@ -32,6 +32,7 @@ public class SecurityConfig { // ta configurations asfaleias
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .requestMatchers("/").permitAll()
                 .requestMatchers("/register").permitAll()
                 .requestMatchers("/cars").permitAll()
                 .requestMatchers("/rent").permitAll()

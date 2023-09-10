@@ -38,6 +38,10 @@ public class CarServiceImpl implements CarService{ // to service tou Car
         return Cars;
     }
 
+    public Car findCarById(int id) {
+        return carRepository.findById(id).orElse(null);
+    }
+
 
     @Override
     @Transactional
@@ -46,5 +50,11 @@ public class CarServiceImpl implements CarService{ // to service tou Car
         Query query = session.createQuery("from Car", Car.class);
 
         return "Car with id = " + id + " deleted successfully";
+    }
+
+    @Override
+    @Transactional
+    public void deleteCarById(int id) {
+        carRepository.deleteById(id);
     }
 }

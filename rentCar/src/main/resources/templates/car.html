@@ -8,52 +8,126 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+    *{
+      padding: 0;
+      margin: 0;
+    }
+
+    .body2{
+      background: white;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    img{
+      width: auto;
+      height: auto;
+      margin: 90px 100px;
+    }
+
+    .car{
+      margin:10px;
+      width: 700px;
+      height: auto;
+      box-shadow: -1px 0 10px #000000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button2{
+      display: block;
+      margin: auto;
+      height: 40px;
+      width: 200px;
+      border: 2px solid rgb(14, 13, 13);
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    tableProducers{
+      border-collapse: collapse;
+      margin: 50px 0px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+      min-width: 400px;
+
+    }
+    .tableProducers thead tr{
+      float:center;
+    }
+
+    .tableProducers thead tr th{
+      text-align: center;
+      padding: 50px;
+    }
+
+    .tableProducers tbody tr td{
+      text-align: center;
+      padding: 50px;
+    }
+
+    .tableProducers tbody button{
+      height: 40px;
+      width: 100px;
+      border: 2px solid rgb(14, 13, 13);
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+  </style>
 
 </head>
 <body class="body2">
 
-<div class="wrapper2">
 
-
-  <div class="car">
-    <h2>Audi A4 2022</h2>
-    <a href="/rent">
-      <img src="2022-Audi-A4.webp">
-    </a>
-  </div>
-
-  <div class="car">
-    <h2>Volkswagen Arteon 2021</h2>
-    <a href="/rent">
-      <img src="2021-Volkswagen-Arteon.webp">
-    </a>
-  </div>
-
-  <div class="car">
-    <h2>Toyota Avalon 2021</h2>
-    <a href="/rent">
-      <img src="2021-Toyota-Avalon.webp">
-    </a>
-  </div>
-
-  <div class="car">
-    <h2>Honda Clarity Fuel Cell 2021</h2>
-    <a href="/rent">
-      <img src="2021-Honda-Clarity Fuel Cell.webp">
-    </a>
-  </div>
-
-  <div class="car">
-    <h2>Nissan Armada 2021</h2>
-    <a href="/rent">
-      <img src="2021-Nissan-Armada.webp">
-    </a>
-  </div>
-
-  <br><br>
+<br><br>
+<div class="cars">
+  <table  class="tableProducers">
+    <tr>
+      <br><br><br><br>
+      <th> Brand </th>
+      <th> Model </th>
+      <th> Year </th>
+      <th >Actions</th>
+    </tr>
+    <tr th:each="car :${Cars}">
+      <td th:text="${car.brand}"></td>
+      <td th:text="${car.model}"></td>
+      <td th:text="${car.modelYear}"></td>
+      <td><button class="button3" th:attr="data-id=${car.id}" onclick="handleBook(this.getAttribute('data-id'))">Book</button></td>
+      <td authorize="hasRole('ADMIN')">
+        <button class="button3" th:attr="data-id=${car.id}" onclick="handleClick(this.getAttribute('data-id'))">Delete</button>
+      </td>
+    </tr>
+  </table>
   <button class="button2" type="button" onclick="location.href='/'">Home</button>
-  <br><br>
-
 </div>
+<script type="text/javascript">
+  function handleClick(data) {
+    fetch('/cars/'+data, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to delete user');
+      }// handle success response
+    }).catch(error => {
+      console.error('Error deleting user:', error);
+    });
+    console.log(data);
+  }
+
+  function handleBook(data){
+    location.href="/rent?carId=" + data;
+  }
+</script>
 </body>
 </html>

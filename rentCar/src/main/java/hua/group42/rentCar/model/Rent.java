@@ -25,13 +25,29 @@ public class Rent {
     @Column(name = "backTime")
     private Date backDate;
 
-    public Rent(@JsonProperty("id") int id, @JsonProperty("renterName") String renterName, @JsonProperty("renterLastName") String renterLastName,@JsonProperty("email") String email, @JsonProperty("gettingDate") Date gettingDate, @JsonProperty("backDate") Date backDate) {
+    @Column(name = "carID")
+    private int carID;
+
+    public Rent(@JsonProperty("id") int id, @JsonProperty("renterName") String renterName, @JsonProperty("renterLastName") String renterLastName,@JsonProperty("email") String email, @JsonProperty("gettingDate") Date gettingDate, @JsonProperty("backDate") Date backDate, @JsonProperty("carID") int carID) {
         this.id = id;
         this.renterName=renterName;
         this.renterLastName=renterLastName;
         this.email=email;
         this.gettingDate = gettingDate;
         this.backDate = backDate;
+        this.carID = carID;
+    }
+
+    public Rent(int carId) {
+        this.carID = carId;
+    }
+
+    public int getCarID() {
+        return carID;
+    }
+
+    public void setCarID(int carID) {
+        this.carID = carID;
     }
 
     public Rent() {
@@ -86,6 +102,7 @@ public class Rent {
                 ", gettingDate=" + gettingDate +
                 ", email='" + email + '\'' +
                 ", backDate=" + backDate +
+                ", carID=" + carID +
                 '}';
     }
 }

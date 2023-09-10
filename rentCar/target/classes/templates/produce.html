@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent A Car</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .body3{
+            background: white;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .wrapper3 form h2{
+            text-decoration: none;
+            color:black;
+            font-size: 25px;
+            font-family: 'Orbitron', sans-serif;
+            padding: 25px 50px;
+            text-decoration: none;
+            transition: .4s;
+        }
+
+        input[type=password]{
+            width: 257px;
+            height: 30px;
+            border: 2px solid black;
+            margin: 8px 0;
+            outline: none;
+        }
+
+        input[type=text]{
+            width: 257px;
+            height: 30px;
+            border: 2px solid black;
+            margin: 8px 0;
+            outline: none;
+        }
+
+        input[type=date]{
+            width: 400x;
+            height: 30px;
+            border: 2px solid black;
+            margin: 8px 0;
+            outline: none;
+        }
+
+        .wrapper3 form button {
+            width: 257px;
+            border: 2px solid black;
+            background: none;
+            padding: 40px, 40px;
+            font-size: 30px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .button2{
+            display: block;
+            margin: auto;
+            height: 40px;
+            width: 200px;
+            border: 2px solid rgb(14, 13, 13);
+            background: none;
+            padding: 50px, 50px;
+            font-size: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+    </style>
+</head>
+<body class="body3">
+<div class="wrapper3">
+    <form th:action="@{/saveProduce}" th:object="${produce}" method="post">
+        <br><br>
+        <h2> Name</h2>
+        <input type="text" name="ProducerName" th:field="*{producerName}">
+        <span th:if="${#fields.hasErrors('producerName')}" th:errors="*{producerName}"></span>
+
+        <h2>Email</h2>
+        <input type="text" name="email" field="*{email}">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+        <h2>Brand</h2>
+        <input type="text" name="brand" th:field="*{brand}">
+        <span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></span>
+
+        <h2>Car's Model</h2>
+        <input type="text" name="carModel" th:field="*{carModel}">
+        <span th:if="${#fields.hasErrors('carModel')}" th:errors="*{carModel}"></span>
+
+        <h2>Car's Year</h2>
+        <input type="text" name="carYear" th:field="*{carYear}">
+        <span th:if="${#fields.hasErrors('carYear')}" th:errors="*{carYear}"></span>
+
+        <br><br><br><br>
+        <button name="saveProduce" class="btnSubmit" type="submit">Submit</button>
+        <br><br><br><br>
+    </form>
+    <button class="button2" type="button" onclick="location.href='/'">Home</button>
+</div>
+</body>
+
+</html>

@@ -8,7 +8,57 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .body5{
+      background: white;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      padding: 130px ;
+    }
 
+
+    .form button{
+      display: block;
+      margin: auto;
+      align-self:flex-end;
+      height: 40px;
+      width: 200px;
+      border: 2px solid rgb(14, 13, 13);
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .Reg label{
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .Reg{
+      margin: auto;
+      padding: 20px;
+      align-items: center;
+
+    }
+    .button2{
+      display: block;
+      margin: auto;
+      height: 40px;
+      width: 200px;
+      border: 2px solid rgb(14, 13, 13);
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+  </style>
 </head>
 <body class="body5">
 <form class="form" th:action="@{/register}" th:object="${user}" method="post">

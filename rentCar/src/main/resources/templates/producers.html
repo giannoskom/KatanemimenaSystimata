@@ -2,8 +2,7 @@
 <html lang ="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Cars</title>
+  <title>Rent A Car</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,42 +13,14 @@
       padding: 0;
       margin: 0;
     }
-
-    .body2{
+    .body4{
       background: white;
       align-items: center;
       justify-content: center;
       display: flex;
     }
 
-    img{
-      width: auto;
-      height: auto;
-      margin: 90px 100px;
-    }
-
-    .car{
-      margin:10px;
-      width: 700px;
-      height: auto;
-      box-shadow: -1px 0 10px #000000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .button2{
-      display: block;
-      margin: auto;
-      height: 40px;
-      width: 200px;
-      border: 2px solid rgb(14, 13, 13);
-      background: none;
-      padding: 50px, 50px;
-      font-size: 20px;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    tableProducers{
+    .tableProducers{
       border-collapse: collapse;
       margin: 50px 0px;
       font-size: 20px;
@@ -80,29 +51,40 @@
       font-size: 20px;
       font-family: 'Orbitron', sans-serif;
     }
+    .button2{
+      display: block;
+      margin: auto;
+      height: 40px;
+      width: 200px;
+      border: 2px solid rgb(14, 13, 13);
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
   </style>
-
 </head>
-<body class="body2">
-
-
-<br><br>
-<div class="cars">
+<body class="body4">
+<div class="producers">
   <table  class="tableProducers">
     <tr>
       <br><br><br><br>
-      <th> Brand </th>
-      <th> Model </th>
-      <th> Year </th>
-      <th >Actions</th>
+      <th> ID </th>
+      <th> Producer Name </th>
+      <th> Car Name </th>
+      <th> Car Model </th>
+      <th> Car Year </th>
+      <th authorize="hasRole('ADMIN')" >Actions</th>
     </tr>
-    <tr th:each="car :${Cars}">
-      <td th:text="${car.brand}"></td>
-      <td th:text="${car.model}"></td>
-      <td th:text="${car.modelYear}"></td>
-      <td><button class="button3" th:attr="data-id=${car.id}" onclick="handleBook(this.getAttribute('data-id'))">Book</button></td>
+    <tr th:each="produce :${Producers}">
+      <td th:text="${produce.id}"></td>
+      <td th:text="${produce.producerName}"></td>
+      <td th:text="${produce.brand}"></td>
+      <td th:text="${produce.carModel}"></td>
+      <td th:text="${produce.carYear}"></td>
       <td authorize="hasRole('ADMIN')">
-        <button class="button3" th:attr="data-id=${car.id}" onclick="handleClick(this.getAttribute('data-id'))">Delete</button>
+        <button class="button3" th:attr="data-id=${produce.id}" onclick="addCar(this.getAttribute('data-id'))">Accept</button>
+        <button class="button3" th:attr="data-id=${produce.id}" onclick="handleClick(this.getAttribute('data-id'))">Delete</button>
       </td>
     </tr>
   </table>
@@ -110,7 +92,7 @@
 </div>
 <script type="text/javascript">
   function handleClick(data) {
-    fetch('/cars/'+data, {
+    fetch('/produces/'+data, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -125,9 +107,25 @@
     console.log(data);
   }
 
-  function handleBook(data){
-    location.href="/rent?carId=" + data;
+  function addCar(data){
+      fetch('/cars/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to add car');
+        }// handle success response
+      }).catch(error => {
+        console.error('Error adding car:', error);
+      });
+    console.log(data);
   }
+
 </script>
+
 </body>
+
 </html>
