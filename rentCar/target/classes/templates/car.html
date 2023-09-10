@@ -80,6 +80,23 @@
       font-size: 20px;
       font-family: 'Orbitron', sans-serif;
     }
+    .tableProducers tr th{
+      height: 40px;
+      width: 100px;
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .tableProducers tr td{
+      height: 40px;
+      width: 100px;
+      background: none;
+      padding: 50px, 50px;
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
   </style>
 
 </head>
@@ -101,9 +118,6 @@
       <td th:text="${car.model}"></td>
       <td th:text="${car.modelYear}"></td>
       <td><button class="button3" th:attr="data-id=${car.id}" onclick="handleBook(this.getAttribute('data-id'))">Book</button></td>
-      <td authorize="hasRole('ADMIN')">
-        <button class="button3" th:attr="data-id=${car.id}" onclick="handleClick(this.getAttribute('data-id'))">Delete</button>
-      </td>
     </tr>
   </table>
   <button class="button2" type="button" onclick="location.href='/'">Home</button>

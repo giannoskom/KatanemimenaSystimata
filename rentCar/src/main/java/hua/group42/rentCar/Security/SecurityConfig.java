@@ -37,6 +37,8 @@ public class SecurityConfig { // ta configurations asfaleias
                 .requestMatchers("/cars").permitAll()
                 .requestMatchers("/rent").permitAll()
                 .requestMatchers("/renters").access("hasRole('ROLE_ADMIN')")
+                .requestMatchers("/producers").access("hasRole('ROLE_ADMIN')")
+                .requestMatchers("/produce").access("hasAnyRole('ROLE_PRODUCER' , 'ROLE_ADMIN')")
                 .anyRequest().authenticated()
                 .and().formLogin().defaultSuccessUrl("/", true)
                 .permitAll()
@@ -46,12 +48,18 @@ public class SecurityConfig { // ta configurations asfaleias
         return http.build();
 
     }
-
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) ->
+                web.ignoring().requestMatchers(
+                        "/css/**", "/js/**", "/images/**");
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
 
 }

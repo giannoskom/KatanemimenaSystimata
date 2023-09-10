@@ -62,17 +62,17 @@
 <header>
 <div class="wrapper">
   <nav class="navbar">
-    <ul>
+      <ul>
         <a href="/" style="border: 1px solid black; text-align: center; width: auto"  > Home </a>
         <a href="/cars" style="border: 1px solid black; text-align: center; width: auto"> Cars </a>
-        <a href="/produce" style="border: 1px solid black; text-align: center; width: auto"  > Insert </a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/renters" th:href="@{/renters}"style="border: 1px solid black; text-align: center; width: auto" class="<?php echo $bIsAdmin ? '' : 'hidden' ?>"> Renters</a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/producers" th:href="@{/producers}"style="border: 1px solid black; text-align: center; width: auto" class="<?php echo $bIsAdmin ? '' : 'hidden' ?>"> Producers</a>
-        <a href="/login" style="border: 1px solid black; text-align: center; width: auto" > Login </a>
-        <a sec:authorize="isAuthenticated()" href="/logout" th:href="@{/logout}" style="border: 1px solid black; text-align: center; width: auto">Logout</a>
-        <a href="/register" style="border: 1px solid black; text-align: center; width: auto"> Register </a>
-    </ul>
+        <a sec:authorize="hasRole('PRODUCER')" href="/produce" style="border: 1px solid black; text-align: center; width: auto"  > Insert </a>
+          <a sec:authorize="hasRole('ADMIN')" href="/renters" th:href="@{/renters}"style="border: 1px solid black; text-align: center; width: auto" class="<?php echo $bIsAdmin ? '' : 'hidden' ?>"> Renters</a>
+          <a sec:authorize="hasRole('ADMIN')" href="/producers" th:href="@{/producers}"style="border: 1px solid black; text-align: center; width: auto" class="<?php echo $bIsAdmin ? '' : 'hidden' ?>"> Producers</a>
+        <a sec:authorize="!isAuthenticated()" href="/login" th:href="@{/login}" style="border: 1px solid black; text-align: center; width: auto" > Log </a>
+        <a sec:authorize="!isAuthenticated()" href="/register" th:href="@{/register}" style="border: 1px solid black; text-align: center; width: auto"> Register </a>
+      </ul>
   </nav>
+
 </div>
 </header>
 </body>
